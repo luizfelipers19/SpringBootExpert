@@ -2,13 +2,22 @@ package com.example.vendas.model;
 
 public class Cliente {
 
-    private String nome;
+    private Integer id;
+    private String name;
 
-    public String getNome() {
-        return nome;
+    public Integer getId() {
+        return id;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
