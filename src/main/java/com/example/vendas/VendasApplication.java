@@ -27,6 +27,12 @@ public class VendasApplication {
 			List<Cliente> todosOsClientes = clientes.obterTodos();
 			todosOsClientes.forEach(System.out::println);
 
+			todosOsClientes.forEach( c-> {
+				c.setName(c.getName() + " atualizado");
+				clientes.atualizar(c);
+					});
+			List<Cliente> todosClientes = clientes.obterTodos();
+			todosClientes.forEach(System.out::println);
 		};
 	}
 
