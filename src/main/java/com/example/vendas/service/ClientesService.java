@@ -16,7 +16,7 @@ public class ClientesService {
     public void salvarCliente(Cliente cliente){
         validarCliente(cliente);
 
-        this.repository.persistirCliente(cliente);
+//        this.repository.persistirCliente(cliente);
     }
 
     public void validarCliente(Cliente cliente){
