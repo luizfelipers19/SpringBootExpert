@@ -1,8 +1,17 @@
 package com.example.vendas.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "clientes")
 public class Cliente {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Integer id;
+
+    @Column(name = "nome", length = 100)
     private String name;
 
     public Cliente(Integer id, String nome) {
