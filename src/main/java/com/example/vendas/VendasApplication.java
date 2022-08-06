@@ -18,20 +18,20 @@ import java.util.List;
 public class VendasApplication {
 
 	@Bean
-	public CommandLineRunner init(@Autowired ClientesRepository clientes){
+	public CommandLineRunner init(@Autowired ClientesRepository clientesRepository){
 		return args -> {
 			//salvando dois clientes
-			clientes.salvar(new Cliente("Luiz"));
-			clientes.salvar(new Cliente("Felipe"));
+			clientesRepository.salvar(new Cliente("Luiz"));
+			clientesRepository.salvar(new Cliente("Felipe"));
 
-			List<Cliente> todosOsClientes = clientes.obterTodos();
+			List<Cliente> todosOsClientes = clientesRepository.obterTodos();
 			todosOsClientes.forEach(System.out::println);
 
 			todosOsClientes.forEach( c-> {
 				c.setName(c.getName() + " atualizado");
-				clientes.atualizar(c);
+				clientesRepository.atualizar(c);
 					});
-			List<Cliente> todosClientes = clientes.obterTodos();
+			List<Cliente> todosClientes = clientesRepository.obterTodos();
 			todosClientes.forEach(System.out::println);
 		};
 	}
