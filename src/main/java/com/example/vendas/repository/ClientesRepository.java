@@ -10,4 +10,6 @@ public interface ClientesRepository extends JpaRepository<Cliente, Integer> {
 
 
     List<Cliente> findByNameLike(String nome);
+
+    boolean existsByName(String nome);
 }

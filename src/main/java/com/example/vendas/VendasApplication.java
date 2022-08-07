@@ -24,6 +24,8 @@ public class VendasApplication {
 			clientesRepository.save(new Cliente("Luiz"));
 			clientesRepository.save(new Cliente("Felipe"));
 
+			System.out.println("Existe um cliente com o nome Luiz? "+ clientesRepository.existsByName("Luiz"));
+
 			List<Cliente> todosOsClientes = clientesRepository.findAll();
 			todosOsClientes.forEach(System.out::println);
 
@@ -41,6 +43,8 @@ public class VendasApplication {
 			clientesRepository.findAll().forEach(c -> {
 				clientesRepository.delete(c);
 			});
+
+			System.out.println("Existe um cliente com o nome Luiz? "+ clientesRepository.existsByName("Luiz"));
 
 			System.out.println("Printando os clientes após delete");
 			todosClientes = clientesRepository.findAll();
