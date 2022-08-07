@@ -3,7 +3,7 @@ package com.example.vendas.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "clientes")
+@Table(name = "Clientes")
 public class Cliente {
 
     @Id
@@ -11,7 +11,7 @@ public class Cliente {
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "nome", length = 100)
+    @Column(name = "name", length = 100)
     private String name;
 
     public Cliente(Integer id, String nome) {

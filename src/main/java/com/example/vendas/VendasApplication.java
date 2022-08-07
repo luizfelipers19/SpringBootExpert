@@ -24,7 +24,9 @@ public class VendasApplication {
 			clientesRepository.save(new Cliente("Luiz"));
 			clientesRepository.save(new Cliente("Felipe"));
 
-			System.out.println("Existe um cliente com o nome Luiz? "+ clientesRepository.existsByName("Luiz"));
+			List<Cliente> result = clientesRepository.findByNameLike("Luiz");
+			result.forEach(System.out::println);
+//			System.out.println("Existe um cliente com o nome Luiz? "+ result.contains());
 
 			List<Cliente> todosOsClientes = clientesRepository.findAll();
 			todosOsClientes.forEach(System.out::println);
