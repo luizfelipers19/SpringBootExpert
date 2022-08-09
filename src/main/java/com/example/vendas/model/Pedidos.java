@@ -1,12 +1,25 @@
 package com.example.vendas.model;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "pedidos")
 public class Pedidos {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
     private Cliente cliente;
+
+    @Column(name = "data_pedido")
     private LocalDateTime data;
+
+    @Column(name = "total", length = 20, precision = 2)
     private BigDecimal total;
 
     public Integer getId() {

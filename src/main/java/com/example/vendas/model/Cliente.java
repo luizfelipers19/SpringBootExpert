@@ -1,6 +1,7 @@
 package com.example.vendas.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "Clientes")
@@ -13,6 +14,17 @@ public class Cliente {
 
     @Column(name = "name", length = 100)
     private String name;
+
+    @OneToMany(mappedBy = "cliente")
+    private Set<Pedidos> pedidos;
+
+    public Set<Pedidos> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(Set<Pedidos> pedidos) {
+        this.pedidos = pedidos;
+    }
 
     public Cliente(Integer id, String nome) {
         this.id = id;
