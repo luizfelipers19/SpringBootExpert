@@ -3,6 +3,7 @@ package com.example.vendas.model;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "pedidos")
@@ -21,6 +22,17 @@ public class Pedidos {
 
     @Column(name = "total", length = 20, precision = 2)
     private BigDecimal total;
+
+    @OneToMany(mappedBy = "pedido")
+    private List<ItemPedidos> items;
+
+    public List<ItemPedidos> getItems() {
+        return items;
+    }
+
+    public void setItems(List<ItemPedidos> items) {
+        this.items = items;
+    }
 
     public Integer getId() {
         return id;

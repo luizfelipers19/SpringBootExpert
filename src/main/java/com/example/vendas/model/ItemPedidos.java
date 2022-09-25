@@ -1,11 +1,29 @@
 package com.example.vendas.model;
 
+import javax.persistence.*;
+import java.util.List;
+
+@Entity
+@Table(name = "item_pedidos")
 public class ItemPedidos {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Integer id;
+
+    @ManyToOne
+    @JoinColumn(name = "pedido_id")
     private Pedidos pedido;
+
+    @ManyToOne
+    @JoinColumn(name = "produto_id")
     private Produtos produtos;
+
+    @Column(name = "quantidade")
     private Integer quantidade;
+
+
 
     public Integer getId() {
         return id;
